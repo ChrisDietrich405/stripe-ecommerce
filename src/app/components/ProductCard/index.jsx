@@ -1,11 +1,13 @@
 "use client";
+import Link from "next/link";
 import styles from "./styles.module.css";
 
 const ProductCard = ({ id, image, price, description, title }) => {
+  // const router = useRouter();
 
-  const handleNavigateToDetailsPage = () => {
-    navigate(`/${id}`);
-  };
+  // const handleNavigateToDetailsPage = () => {
+  //   router(`/${id}`);
+  // };
 
   const formatter = Intl.NumberFormat("en-US", {
     style: "currency",
@@ -18,6 +20,7 @@ const ProductCard = ({ id, image, price, description, title }) => {
       <h5>{title}</h5>
       <img className={styles.product_container_img} src={image} alt={title} />
       <div>
+        <Link href={`/${id}`}>{title}</Link>
         <p>{formatter.format(price)}</p>
         {/* <button onClick={handleNavigateToDetailsPage}>Details</button> */}
       </div>
