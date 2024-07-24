@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./styles.module.css";
 
 const ProductCard = ({ id, image, price, description, title }) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const handleNavigateToDetailsPage = () => {
-  //   router(`/${id}`);
-  // };
+  const handleNavigateToDetailsPage = (id) => {
+    router.push(`/products/details`);
+  };
 
   const formatter = Intl.NumberFormat("en-US", {
     style: "currency",
@@ -20,9 +21,9 @@ const ProductCard = ({ id, image, price, description, title }) => {
       <h5>{title}</h5>
       <img className={styles.product_container_img} src={image} alt={title} />
       <div>
-        <Link href={`/${id}`}>{title}</Link>
+        {/* <Link href={`/products/${id}`}>Details</Link> */}
         <p>{formatter.format(price)}</p>
-        {/* <button onClick={handleNavigateToDetailsPage}>Details</button> */}
+        <button onClick={() => handleNavigateToDetailsPage()}>Details</button>
       </div>
     </div>
   );
@@ -30,22 +31,3 @@ const ProductCard = ({ id, image, price, description, title }) => {
 
 export default ProductCard;
 
-// import React from 'react';
-// import { useRouter } from 'next/router';
-
-// const Home = () => {
-//   const router = useRouter();
-
-//   const navigateToAbout = () => {
-//     router.push('/about');
-//   };
-
-//   return (
-//     <div>
-//       <h1>Home Page</h1>
-//       <button onClick={navigateToAbout}>Go to About Page</button>
-//     </div>
-//   );
-// };
-
-// export default Home;
