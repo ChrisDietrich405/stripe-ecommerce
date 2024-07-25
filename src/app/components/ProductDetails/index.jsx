@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { api } from "../../api/product-api";
-// import styles from "./styles.module.css";
+import styles from "./styles.module.css";
 
 const ProductDetails = ({ id }) => {
   const [productData, setProductData] = useState({});
@@ -30,7 +30,7 @@ const ProductDetails = ({ id }) => {
         <strong> count: {productData.rating?.count}</strong>
       </p>
       <img
-        // className={styles.product_container_img}
+        className={styles.product_container_img}
         src={productData.image}
         alt={productData.title}
       />
