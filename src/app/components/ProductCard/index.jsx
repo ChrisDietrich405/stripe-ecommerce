@@ -7,7 +7,7 @@ const ProductCard = ({ id, image, price, description, title }) => {
   const router = useRouter();
 
   const handleNavigateToDetailsPage = (id) => {
-    router.push(`/products/details`);
+    router.push(`/products/${id}`);
   };
 
   const formatter = Intl.NumberFormat("en-US", {
@@ -23,7 +23,7 @@ const ProductCard = ({ id, image, price, description, title }) => {
       <div>
         {/* <Link href={`/products/${id}`}>Details</Link> */}
         <p>{formatter.format(price)}</p>
-        <button onClick={() => handleNavigateToDetailsPage()}>Details</button>
+        <button onClick={() => handleNavigateToDetailsPage(id)}>Details</button>
       </div>
     </div>
   );
